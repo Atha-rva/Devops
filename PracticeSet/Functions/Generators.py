@@ -43,3 +43,126 @@
 # Generators are memory-efficient because they generate values on-the-fly instead of storing everything in memory.
 
 # For large datasets, generators save memory:
+
+# def large_sequence(n):
+#     for i in range(n):
+#         yield i
+
+
+# # This doesn't create a million numbers in memory 
+
+# gen = large_sequence(1000000)
+# print(next(gen))
+# print(next(gen))
+# print(next(gen))
+
+
+# Using next() with Generators
+
+# You can manually iterate through a generator using the next() function:
+
+
+# def simple_gen():
+#     yield "Emil"
+#     yield "Tobias"
+#     yield "Linus"
+
+# gen = simple_gen()
+
+# print(next(gen))
+# print(next(gen))
+# print(next(gen))
+
+
+
+# def simple_gen():
+#     yield "Emil"
+#     yield "Tobias"
+#     yield "Linus"
+
+# gen = simple_gen()
+
+# print(next(gen))
+# print(next(gen))
+
+# When there are no more values to yield, the generator raises a StopIteration exception:
+
+
+# List Comprehension - creates a list 
+
+# list_comp = [x * x for x in range(5)]
+# print(list_comp)
+
+
+# Generator expression - creates a generator 
+
+# gen_exp = (x * x for x in range(5))
+# print(gen_exp)
+# print(list(gen_exp))
+
+
+
+# Calculate sum of squares without creating a list 
+
+# total = sum(x * x for x in range(10))
+# print(total)
+
+
+# Fibonacci Sequence Generator
+
+# Generators can be used to create the Fibonacci sequence.
+
+
+# def fibonacci():
+#     a,b = 0,1
+#     while True:
+#         yield a 
+#         a, b = b , a+b 
+
+
+# # Get first 100 Fibonacci numbers 
+
+# gen = fibonacci()
+
+# for _ in range(100):
+#     print(next(gen))
+
+
+#  Generator Method 
+
+
+# Generators have special methods for advanced control:
+
+# send() Method
+
+# The send() method allows you to send a value to the generator:
+
+
+# def echo_generator():
+#     while True:
+#         recevied = yield 
+#         print("Received: ", recevied)
+
+# gen = echo_generator()
+# next(gen)  # Prime the generator 
+
+# gen.send("Hello")
+# gen.send("World")
+
+
+# close() Method
+
+# The close() method stops the generator:
+
+# def my_gen():
+#     try:
+#         yield 1 
+#         yield 2 
+#         yield 3 
+#     finally:
+#         print("Generator closed")
+
+
+# gen = my_gen()
+# print(next(gen))
+# gen.close()
